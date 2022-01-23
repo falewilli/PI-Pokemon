@@ -15,13 +15,13 @@ function rootReducer (state = initialState, action) {
                 allpokemons: action.payload
             };
 
-        case 'GET_LIFE':
-            const allPokemons = state.pokemons;
-            const filteredByLife = allPokemons.filter(p => p.hp < 20);
-            return {
-                ...state,
-                pokemons: filteredByLife
-            }
+        // case 'FILTER_BY_LIFE':
+        //     const allPokemons = state.pokemons;
+        //     const filterByLife = allPokemons.filter(p => p.hp < 20);
+        //     return {
+        //         ...state,
+        //         pokemons: filterByLife
+        //     }
 
 
         case 'GET_NAME_POKEMONS':

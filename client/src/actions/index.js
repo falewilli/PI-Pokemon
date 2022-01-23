@@ -29,13 +29,13 @@ export function getNamePokemons(name){
     }
 }
 
-export function filteredByLife(payload){
-    // console.log(payload)
-    return{
-        type: 'GET_LIFE',
-        payload
-    }
-}
+// export function filterByLife(payload){
+//     // console.log(payload)
+//     return{
+//         type: 'FILTER_BY_LIFE',
+//         payload
+//     }
+// }
 
 export function filterCreated(payload){
     // console.log(payload)

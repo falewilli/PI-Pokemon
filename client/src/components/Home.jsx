@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useState , useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPokemons, getTypes, orderByNameStrength, filterByTypes, filterCreated, filteredByLife } from '../actions';
+import { getPokemons, getTypes, orderByNameStrength, filterByTypes, filterCreated } from '../actions';
 import Header from './Header';
 import Card from './Card';
 import Paginate from './Paginate';
@@ -44,10 +44,10 @@ export default function Home(){
         setCurrentPage(1);
     }
 
-    function handleLife(e){
-        dispatch(filteredByLife());
-        setCurrentPage(1);
-    }
+    // function handleLife(e){
+    //     dispatch(filteredByLife());
+    //     setCurrentPage(1);
+    // }
 
     function handleOrderByNameStrength(e){
         dispatch(orderByNameStrength(e.target.value));
@@ -77,9 +77,9 @@ export default function Home(){
                 <button className={styles.load} onClick={(e) => {handleClickLoadAll(e)}}>
                     Load All Pokemons
                 </button>
-                <button className={styles.load} onClick={(e) => {handleLife(e)}}>
+                {/* <button className={styles.load} onClick={(e) => {handleLife(e)}}>
                     Life 20
-                </button>
+                </button> */}
                 <select className={styles.orderby} onChange={(e) => handleOrderByNameStrength(e)}>
                     <option value='All'>Order By / Show All</option>
                     <option value='asc'>Name Asc / A-Z</option>
