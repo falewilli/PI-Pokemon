@@ -23,11 +23,12 @@ export default function Home(){
     },[dispatch])
 
     const [currentPage, setCurrentPage] = useState(1); // ESTADO LOCAL ARRANCA EN PAGINA 1
+    // eslint-disable-next-line no-unused-vars
     const [pokemonsPerPage, setPokemonsPerPage] = useState(12); // ESTADO LOCAL CANTIDAD DE CARACTERES POR PAGINA
     const indexOfLastPokemon = currentPage * pokemonsPerPage;
     const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage;
     const currentPokemons = allPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon);
-
+    // eslint-disable-next-line no-unused-vars
     const [order, setOrder] = useState('');
 
     // const [orderByNameStrength, setOrderByNameStrength] = useState('All');
