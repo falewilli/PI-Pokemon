@@ -2,45 +2,12 @@ require('dotenv').config();
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_NAME } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-const sequelize = process.env.NODE_ENV === "production" ?
-new Sequelize({
-  // database: DB_NAME,
-  database: 'ddt1k06dl3rgfa',
-  dialect: "postgres",
-  // host: DB_HOST,
-  host: 'ec2-3-224-157-224.compute-1.amazonaws.com',
-  port: 5432,
-  // username: DB_USER,
-  username: 'lphvnumgkvlcna',
-  // password: DB_PASSWORD,
-  password: 'ec4fb761cb9ab615ca5fb9f9f6bb30255e654f41d23f53954d57b447ebc728ae',
-  pool: {
-    max: 3,
-    min: 1,
-    idle: 10000,
-  },
-  dialectOptions: {
-    ssl: {
-    require: true,
-    // Ref.: https://github.com/brianc/node-postgres/issues/2009
-    rejectUnauthorized: false,
-  },
-  keepAlive: true,
-},
-ssl: true,
-}) :
-new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
-
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`, {
-//   logging: false, // set to console.log to see the raw SQL queries
-//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-// });
-
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
